@@ -1,8 +1,51 @@
 import { FileItem } from '@/src/components/FileItem';
+import {
+    ActionButton,
+    Breadcrumb,
+    BreadcrumbActiveText,
+    BreadcrumbItem,
+    BreadcrumbText,
+    ButtonContainer,
+    CloseBtn,
+    Container,
+    EmptyContainer,
+    EmptySubText,
+    EmptyText,
+    FAB,
+    FABContainer,
+    FolderItem,
+    FolderList,
+    FolderNavText,
+    GridIconContainer,
+    GridItem,
+    GridName,
+    GridSize,
+    HeaderActions,
+    HeaderTop,
+    IconBtn,
+    ListWrapper,
+    LoadingContainer,
+    LoadingText,
+    ModalContent,
+    ModalContentSmall,
+    ModalHeader,
+    ModalOverlay,
+    ModalOverlayCenter,
+    ModalTitle,
+    SearchBar,
+    SearchInputText,
+    SelectionActions,
+    SelectionBar,
+    SelectionText,
+    SortBtn,
+    SortBtnText,
+    Toolbar,
+    ToolbarGroup,
+    ViewBtn,
+} from '@/src/components/files/filesScreenStyles';
 import { Button, Input } from '@/src/components/ui';
 import { buildFullPath, useFilesScreen } from '@/src/hooks/useFilesScreen';
 import { getBasePath } from '@/src/services/fileService';
-import styled from '@/src/styled';
 import { theme } from '@/src/theme';
 import { formatSize } from '@/src/utils/format';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -28,13 +71,10 @@ import {
     FlatList,
     GestureResponderEvent,
     Modal,
-    Pressable,
-    TouchableOpacity,
-    View
+    TouchableOpacity
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Defs, Stop, LinearGradient as SvgLinearGradient, Text as SvgText } from 'react-native-svg';
-import { DefaultTheme } from 'styled-components';
 
 export default function FilesScreen() {
   const {
@@ -298,321 +338,3 @@ export default function FilesScreen() {
     </Container>
   );
 }
-
-// ─── Styled Components ───────────────────────────────────────────────
-
-const Container = styled.View`
-  flex: 1;
-  background-color: #000000;
-`;
-
-const HeaderTop = styled.View`
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-`;
-
-const HeaderActions = styled.View`
-  flex-direction: row;
-  gap: 8px;
-`;
-
-const IconBtn = styled.Pressable`
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  background-color: #31363F;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Breadcrumb = styled.View`
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 8px 0;
-  margin-bottom: 8px;
-  border-bottom-width: 1px;
-  border-bottom-color: #cccccc;
-`;
-
-const BreadcrumbItem = styled(Pressable)`
-  flex-direction: row;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 2px;
-`;
-
-const SearchBar = styled.View`
-  flex-direction: row;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 8px 12px;
-  margin-bottom: 8px;
-  gap: 8px;
-`;
-
-const Toolbar = styled.View`
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 0;
-`;
-
-const ToolbarGroup = styled.View`
-  flex-direction: row;
-  gap: 4px;
-  background-color: #31363F;
-  border-radius: 8px;
-  padding: 2px;
-`;
-
-const SortBtn = styled.Pressable<{ active?: boolean }>`
-  padding: 6px 12px;
-  border-radius: 6px;
-  background-color: ${({ active }: { active?: boolean }) => active ? '#092328' : '#31363F'};
-`;
-
-const ViewBtn = styled.Pressable<{ active?: boolean }>`
-  width: 36px;
-  height: 36px;
-  border-radius: 6px;
-  align-items: center;
-  justify-content: center;
-  background-color: ${({ active }: { active?: boolean }) => active ? '#092328' : 'transparent'};
-`;
-
-const SelectionBar = styled.View`
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  background-color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.primary + '10'};
-  border-radius: 12px;
-  padding: 12px 16px;
-  margin-top: 8px;
-`;
-
-const SelectionText = styled.Text`
-  font-size: 14px;
-  font-weight: 600;
-  color: #ffffff;
-`;
-
-const SelectionActions = styled.View`
-  flex-direction: row;
-  align-items: center;
-  gap: 4px;
-`;
-
-const ActionButton = styled.Pressable<{ icon: React.ReactNode; label: string }>`
-  padding: 8px;
-  border-radius: 8px;
-  align-items: center;
-`;
-
-const CloseBtn = styled.Pressable`
-  padding: 8px;
-`;
-
-// ─── Grid View ────────────────────────────────────────────────────────
-
-const GridItem = styled(Pressable)`
-  flex: 1;
-  align-items: center;
-  padding: 12px 8px;
-`;
-
-const GridIconContainer = styled.View<{ isSelected?: boolean }>`
-  width: 64px;
-  height: 64px;
-  border-radius: 12px;
-  background-color: ${({ isSelected, theme }: { isSelected?: boolean; theme: DefaultTheme }) => isSelected ? theme.colors.primaryLight + '30' : theme.colors.backgroundAlt};
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-`;
-
-const GridName = styled.Text`
-  font-size: 13px;
-  font-weight: 500;
-  color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.text};
-  text-align: center;
-  width: 100%;
-  padding: 0 4px;
-`;
-
-const GridSize = styled.Text`
-  font-size: 11px;
-  color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.textMuted};
-  margin-top: 2px;
-`;
-
-// ─── Modals ───────────────────────────────────────────────────────────
-
-const ModalOverlay = styled(Pressable)`
-  flex: 1;
-  background-color: rgba(0,0,0,0.5);
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding-bottom: 32px;
-`;
-
-const ModalOverlayCenter = styled(Pressable)`
-  flex: 1;
-  background-color: rgba(0,0,0,0.5);
-  align-items: center;
-  justify-content: center;
-`;
-
-const ModalContent = styled(Pressable)`
-  width: 100%;
-  max-height: 52%;
-  flex: 1;
-  flex-direction: column;
-  background-color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.background};
-  border-radius: 20px 20px 0 0;
-  padding: 20px;
-  padding-bottom: 32px;
-`;
-
-const ModalContentSmall = styled(Pressable)`
-  width: 85%;
-  background-color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.background};
-  border-radius: 16px;
-  padding: 20px;
-  gap: 16px;
-`;
-
-const ModalHeader = styled.View`
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-`;
-
-const ModalTitle = styled.Text`
-  font-size: 18px;
-  font-weight: 600;
-  color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.text};
-`;
-
-const FolderList = styled.View`
-  max-height: 200px;
-  overflow-y: auto;
-  margin-bottom: 16px;
-`;
-
-const FolderItem = styled.Pressable<{ selected?: boolean }>`
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-  padding: 6px;
-  margin: 2px 0;
-  border-radius: 8px;
-  background-color: ${({ selected, theme }: { selected?: boolean; theme: DefaultTheme }) => selected ? theme.colors.primaryLight + '20' : 'transparent'};
-  border-width: ${({ selected }: { selected?: boolean }) => selected ? 2 : 0}px;
-  border-style: solid;
-  border-color: ${({ selected, theme }: { selected?: boolean; theme: DefaultTheme }) => selected ? theme.colors.primary : 'transparent'};
-`;
-
-const ButtonContainer = styled.View`
-  flex-direction: row;
-  gap: 12px;
-`;
-
-// ─── FAB ──────────────────────────────────────────────────────────────
-
-const FABContainer = styled.View`
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
-`;
-
-const ListWrapper = styled.View`
-  flex: 1;
-  position: relative;
-  margin-bottom: 0;
-  padding-bottom: 0;
-  background-color: #ffffff;
-`;
-
-const FAB = styled(Pressable)`
-  width: 56px;
-  height: 56px;
-  border-radius: 28px;
-  background-color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.primary};
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 8px;
-  shadow-color: #000;
-  shadow-offset: 0 4px;
-  shadow-opacity: 0.2;
-  shadow-radius: 8px;
-  elevation: 6;
-`;
-
-// ─── Misc ─────────────────────────────────────────────────────────────
-
-const LoadingContainer = styled(View)`
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-`;
-
-const EmptyContainer = styled(View)`
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  padding: 32px;
-`;
-
-const BreadcrumbText = styled.Text`
-  font-size: 14px;
-  color: #cccccc;
-  margin-left: 2px;
-`;
-
-const BreadcrumbActiveText = styled.Text`
-  font-size: 14px;
-  color: #ffffff;
-  font-weight: 600;
-  margin-left: 2px;
-`;
-
-const SearchInputText = styled.TextInput`
-  flex: 1;
-  font-size: 14px;
-  color: #ffffff;
-`;
-
-const LoadingText = styled.Text`
-  font-size: 16px;
-  color: #94A3B8;
-`;
-
-const EmptyText = styled.Text`
-  font-size: 16px;
-  color: #64748B;
-  margin-bottom: 8px;
-`;
-
-const EmptySubText = styled.Text`
-  font-size: 14px;
-  color: #94A3B8;
-  text-align: center;
-`;
-
-const FolderNavText = styled.Text`
-  font-size: 14px;
-  color: #E3651D;
-`;
-
-const SortBtnText = styled.Text`
-  font-size: 12px;
-  color: #64748B;
-`;
-
-
-
