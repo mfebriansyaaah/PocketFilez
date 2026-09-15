@@ -5,13 +5,13 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { View } from 'react-native';
 import type { DefaultTheme } from 'styled-components';
-import { Button } from '../src/components/ui/Button';
-import { Input } from '../src/components/ui/Input';
-import PocketFilezLogo from '../src/components/PocketFilezLogo';
-import { LoginFormData, LoginSchema } from '../src/schema/auth.schema';
-import { setStorage, STORAGE_KEYS } from '../src/storage/storage';
-import { useAppStore } from '../src/store/useStore';
-import styled from '../src/styled';
+import { Button } from '@/src/components/ui/Button';
+import { Input } from '@/src/components/ui/Input';
+import PocketFilezLogo from '@/src/components/PocketFilezLogo';
+import { LoginFormData, LoginSchema } from '@/src/schema/auth.schema';
+import { setStorage, STORAGE_KEYS } from '@/src/storage/storage';
+import { useAppStore } from '@/src/store/useStore';
+import styled from '@/src/styled';
 
 const Container = styled.View<{ theme: DefaultTheme }>`
   flex: 1;
