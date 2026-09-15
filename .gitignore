@@ -99,3 +99,6 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# AI agent tooling
+.kilo/
