@@ -102,6 +102,10 @@ yarn-error.*
 
 # AI agent tooling
 .kilo/
+.claude/
+opencode.json.txt
+AGENTS.md
+CLAUDE.md
 
 # Windows
 nul
