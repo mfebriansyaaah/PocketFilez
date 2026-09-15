@@ -1,4 +1,4 @@
-import { Button } from '@/src/components/ui/Button';
+import { Button } from '@/src/components/ui';
 import * as MediaLibrary from 'expo-media-library';
 import { useRouter } from 'expo-router';
 import { ArrowRight } from 'lucide-react-native';

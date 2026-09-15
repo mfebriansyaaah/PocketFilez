@@ -1,6 +1,5 @@
 import { FileItem } from '@/src/components/FileItem';
-import { Button } from '@/src/components/ui/Button';
-import { Input } from '@/src/components/ui/Input';
+import { Button, Input } from '@/src/components/ui';
 import { useClipboardStore } from '@/src/hooks/useClipboard';
 import {
     useCopyFiles,
