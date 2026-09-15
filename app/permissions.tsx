@@ -1,11 +1,11 @@
 import { Button } from '@/src/components/ui';
+import styled from '@/src/styled';
 import * as MediaLibrary from 'expo-media-library';
 import { useRouter } from 'expo-router';
 import { ArrowRight } from 'lucide-react-native';
 import { useState } from 'react';
 import { Alert, Platform, Text, View } from 'react-native';
 import { DefaultTheme } from 'styled-components';
-import styled from '@/src/styled';
 
 const Container = styled.View<{ theme: DefaultTheme }>`
   flex: 1;

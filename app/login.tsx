@@ -1,3 +1,9 @@
+import PocketFilezLogo from '@/src/components/PocketFilezLogo';
+import { Button, Input } from '@/src/components/ui';
+import { LoginFormData, LoginSchema } from '@/src/schema/auth.schema';
+import { setStorage, STORAGE_KEYS } from '@/src/storage/storage';
+import { useAppStore } from '@/src/store/useStore';
+import styled from '@/src/styled';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'expo-router';
 import { Eye, EyeOff } from 'lucide-react-native';
@@ -5,12 +11,6 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { View } from 'react-native';
 import type { DefaultTheme } from 'styled-components';
-import { Button, Input } from '@/src/components/ui';
-import PocketFilezLogo from '@/src/components/PocketFilezLogo';
-import { LoginFormData, LoginSchema } from '@/src/schema/auth.schema';
-import { setStorage, STORAGE_KEYS } from '@/src/storage/storage';
-import { useAppStore } from '@/src/store/useStore';
-import styled from '@/src/styled';
 
 const Container = styled.View<{ theme: DefaultTheme }>`
   flex: 1;

@@ -1,8 +1,8 @@
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
 import { QueryProvider } from '@/src/providers/QueryProvider';
 import { GlobalStyle, ThemeProvider } from '@/src/styled';
 import { theme } from '@/src/theme';
+import { useFonts } from 'expo-font';
+import { Stack } from 'expo-router';
 
 export default function RootLayout() {
   const [, error] = useFonts({
